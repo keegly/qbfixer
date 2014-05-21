@@ -1,0 +1,17 @@
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\obj\x86\Release\qbfixer.csproj.ResolveComReference.cache
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\qbfixer.exe
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\qbfixer.pdb
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\LinqToExcel.dll
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\log4net.dll
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\Remotion.Data.Linq.dll
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\Remotion.dll
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\Remotion.Interfaces.dll
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\LinqToExcel.xml
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\obj\x86\Release\qbfixer.Form1.resources
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\obj\x86\Release\qbfixer.Properties.Resources.resources
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\obj\x86\Release\qbfixer.exe
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\obj\x86\Release\qbfixer.pdb
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\obj\x86\Release\Interop.QBFC13Lib.dll
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\obj\x86\Release\qbfixer.csproj.GenerateResource.Cache
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\qbfixer.exe.CodeAnalysisLog.xml
+C:\Users\Keeg\Documents\Visual Studio 2010\Projects\qbfixer\bin\Release\qbfixer.exe.lastcodeanalysissucceeded
