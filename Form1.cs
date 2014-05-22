@@ -23,7 +23,7 @@ namespace qbfixer
         static bool _connectionOpen = false;
         static bool _failed = false;
         static QBSessionManager sessionManager = null;
-        static List<Invoice> _invoices = new List<Invoice>();
+        static List<Invoice> _invoices = null;
         static List<Invoice> _unpaidInvoices = new List<Invoice>();
         BackgroundWorker _bw;
 
@@ -45,6 +45,9 @@ namespace qbfixer
 
             // Hide the progress bar
             progressBar1.Hide();
+            // Disable the button until we've imported some invoices to process
+            import_cheque_btn.Enabled = false;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,10 +63,14 @@ namespace qbfixer
             if (result == DialogResult.OK)
             {
                 EXCEL_FILE = openFileDialog1.FileName;
-                excel_file_lbl.Text = openFileDialog1.SafeFileName;
-
                 // Process file and get a list of invoices to be paid
                 _invoices = ImportXls();
+                if (_invoices != null)
+                {
+                    excel_file_lbl.Text = openFileDialog1.SafeFileName;
+                    // enable the process button
+                    import_cheque_btn.Enabled = true;
+                }
             }
         }
 
@@ -75,18 +82,29 @@ namespace qbfixer
             excel.AddMapping<Invoice>(x => x.ChequeNumber, "CHEQUE NUMBER");
             excel.AddMapping<Invoice>(x => x.Total, "TOTAL AMOUNT");
 
-            var probills = from x in excel.Worksheet<Invoice>()
-                           select x;
-
-
-            foreach (Invoice i in probills)
+            try
             {
-                invoices_listbox.Items.Add(String.Format("{0} - $ {1, 3:0.00}", i.Probill, i.Total));
+                var probills = from x in excel.Worksheet<Invoice>()
+                               select x;
 
+                // TODO: Populate listview here with the invoices
+                foreach (Invoice i in probills)
+                {
+                    ListViewItem lvi = new ListViewItem(i.Probill);
+                    lvi.SubItems.Add(String.Format("${0, 3:0.00}", i.Total));
+                    invoices_listview.Items.Add(lvi);
+                }
+
+                return probills.ToList();
+            }
+            catch (System.Data.OleDb.OleDbException e)
+            {
+                // TODO: Log exception
+                MessageBox.Show("There was an error importing the Excel file. (" + e.Message + ")", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return probills.ToList();
-
+            // Failed to import any invoices
+            return null;
         }
 
         private void GetCustomers()
@@ -179,6 +197,8 @@ namespace qbfixer
 
         void bw_DoWork(object sender, DoWorkEventArgs e)
         {
+            if (_invoices == null) return; // Haven't parsed any invoices yet, or there was an error
+
             sessionManager.BeginSession(COMPANY_FILE, ENOpenMode.omDontCare);
             _sessionBegun = true;
             _failed = false;
@@ -328,5 +348,6 @@ namespace qbfixer
             }
             progressBar1.Hide();
         }
+
     }
 }

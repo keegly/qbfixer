@@ -32,10 +32,12 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.excel_file_lbl = new System.Windows.Forms.Label();
             this.quit_btn = new System.Windows.Forms.Button();
-            this.invoices_listbox = new System.Windows.Forms.ListBox();
             this.import_cheque_btn = new System.Windows.Forms.Button();
             this.customer_listbox = new System.Windows.Forms.ListBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.invoices_listview = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // load_spreadsheet_btn
@@ -74,14 +76,6 @@
             this.quit_btn.UseVisualStyleBackColor = true;
             this.quit_btn.Click += new System.EventHandler(this.quit_btn_Click);
             // 
-            // invoices_listbox
-            // 
-            this.invoices_listbox.FormattingEnabled = true;
-            this.invoices_listbox.Location = new System.Drawing.Point(12, 74);
-            this.invoices_listbox.Name = "invoices_listbox";
-            this.invoices_listbox.Size = new System.Drawing.Size(366, 212);
-            this.invoices_listbox.TabIndex = 5;
-            // 
             // import_cheque_btn
             // 
             this.import_cheque_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -110,15 +104,35 @@
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 11;
             // 
+            // invoices_listview
+            // 
+            this.invoices_listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.invoices_listview.Location = new System.Drawing.Point(12, 74);
+            this.invoices_listview.Name = "invoices_listview";
+            this.invoices_listview.Size = new System.Drawing.Size(365, 211);
+            this.invoices_listview.TabIndex = 12;
+            this.invoices_listview.UseCompatibleStateImageBehavior = false;
+            this.invoices_listview.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Invoice #";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Total";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 451);
+            this.Controls.Add(this.invoices_listview);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.customer_listbox);
             this.Controls.Add(this.import_cheque_btn);
-            this.Controls.Add(this.invoices_listbox);
             this.Controls.Add(this.quit_btn);
             this.Controls.Add(this.excel_file_lbl);
             this.Controls.Add(this.load_spreadsheet_btn);
@@ -135,11 +149,13 @@
         private System.Windows.Forms.Button load_spreadsheet_btn;
         private System.Windows.Forms.Label excel_file_lbl;
         private System.Windows.Forms.Button quit_btn;
-        private System.Windows.Forms.ListBox invoices_listbox;
         private System.Windows.Forms.Button import_cheque_btn;
         private System.Windows.Forms.ListBox customer_listbox;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ListView invoices_listview;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
 
     }
 }
