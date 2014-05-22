@@ -52,7 +52,7 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "Excel files (*.xls)|*.txt|All files (*.*)|*.*";
+            this.openFileDialog1.Filter = "Excel Worksheets|*.xls;*.xlsx|All Files|*.*";
             this.openFileDialog1.InitialDirectory = "C:\\Users\\Keeg\\Desktop";
             this.openFileDialog1.Title = "Select a Spreadsheet";
             // 
