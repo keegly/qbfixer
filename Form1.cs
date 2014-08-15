@@ -88,6 +88,10 @@ namespace qbfixer
                                select x;
 
                 // TODO: Populate listview here with the invoices
+                // In case we're doing more than one batch per opening of program, 
+                // clear the listview each time we import a spreadsheet
+                invoices_listview.Items.Clear();
+
                 foreach (Invoice i in probills)
                 {
                     ListViewItem lvi = new ListViewItem(i.Probill);
