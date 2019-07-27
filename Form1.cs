@@ -87,13 +87,15 @@ namespace qbfixer
                 var probills = from x in excel.Worksheet<Invoice>()
                                select x;
 
-                // TODO: Populate listview here with the invoices
                 // In case we're doing more than one batch per opening of program, 
                 // clear the listview each time we import a spreadsheet
                 invoices_listview.Items.Clear();
 
                 foreach (Invoice i in probills)
                 {
+                    // Skip displaying any worth $0
+                    if (i.Total == 0) continue;
+                    if (i.Probill == null) continue;
                     ListViewItem lvi = new ListViewItem(i.Probill);
                     lvi.SubItems.Add(String.Format("${0, 3:0.00}", i.Total));
                     invoices_listview.Items.Add(lvi);
